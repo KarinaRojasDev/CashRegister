@@ -1,0 +1,195 @@
+/* =============================
+   Variables de color (root)
+============================= */
+:root {
+    /* Turquesa */
+    --turquesa-fuerte: #00bfae;
+    --turquesa-medio: #26d3c1;
+    --turquesa-claro: #a0f0eb;
+
+    /* Fucsia */
+    --fucsia-fuerte: #ff007f;
+    --fucsia-medio: #ff66a3;
+    --fucsia-claro: #ffc0d9;
+
+    /* Otros */
+    --gris-claro: #f5f5f5;
+    --gris-medio: #e0e0e0;
+    --gris-oscuro: #333333;
+    --blanco: #ffffff;
+}
+
+/* =============================
+   Reset y base
+============================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--gris-oscuro);
+    color: var(--gris-oscuro);
+    line-height: 1.5;
+    padding: 1rem;
+}
+
+/* =============================
+   Contenedor principal
+============================= */
+main {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: var(--blanco);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================
+   Caja dibujo
+============================= */
+#caja-dibujo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor centrado */
+#caja-dibujo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+/* Imagen más grande y responsiva */
+#caja-dibujo img {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+#caja-dibujo img:hover {
+    transform: scale(1.1);
+}
+
+/* =============================
+   Secciones
+============================= */
+section {
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--fucsia-fuerte);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--fucsia-medio);
+    padding-bottom: 0.2rem;
+}
+
+/* =============================
+   Labels e Inputs
+============================= */
+label {
+    display: inline-block;
+    width: 70px;
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="number"] {
+    width: calc(100% - 80px);
+    padding: 0.5rem;
+    border: 2px solid var(--turquesa-medio);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--blanco);
+}
+
+/* Hover y focus */
+input[type="number"]:hover {
+    border-color: var(--turquesa-fuerte);
+    box-shadow: 0 0 8px var(--turquesa-claro);
+}
+
+input[type="number"]:focus {
+    border-color: var(--fucsia-fuerte);
+    box-shadow: 0 0 8px var(--fucsia-medio);
+}
+
+/* =============================
+   Botón
+============================= */
+button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.7rem;
+    cursor: pointer;
+    background: var(--fucsia-fuerte);
+    color: var(--blanco);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--fucsia-medio);
+    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+}
+
+/* =============================
+   Mensajes
+============================= */
+#mensaje,
+#cambio,
+#estadoCaja {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: var(--turquesa-claro);
+    font-weight: 500;
+    text-align: center;
+}
+
+/* =============================
+   Responsive (Mobile First)
+============================= */
+@media (min-width: 480px) {
+    main {
+        padding: 2rem;
+    }
+
+    input[type="number"] {
+        width: calc(100% - 90px);
+    }
+
+    label {
+        width: 80px;
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        max-width: 700px;
+        padding: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    input[type="number"] {
+        font-size: 1.1rem;
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+    }
+}
