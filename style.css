@@ -1,195 +1,206 @@
-/* =============================
-   Variables de color (root)
-============================= */
 :root {
-    /* Turquesa */
-    --turquesa-fuerte: #00bfae;
-    --turquesa-medio: #26d3c1;
-    --turquesa-claro: #a0f0eb;
-
-    /* Fucsia */
-    --fucsia-fuerte: #ff007f;
-    --fucsia-medio: #ff66a3;
-    --fucsia-claro: #ffc0d9;
-
-    /* Otros */
-    --gris-claro: #f5f5f5;
-    --gris-medio: #e0e0e0;
-    --gris-oscuro: #333333;
-    --blanco: #ffffff;
+    --bg-main: #0f172a;
+    --bg-card: #111827;
+    --neon-primary: #00f5ff;
+    --neon-secondary: #39ff14;
+    --neon-accent: #ff00ff;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border-glow: rgba(0, 245, 255, 0.5);
 }
 
-/* =============================
-   Reset y base
-============================= */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--gris-oscuro);
-    color: var(--gris-oscuro);
-    line-height: 1.5;
+    background: var(--bg-main);
+    color: var(--text-main);
     padding: 1rem;
+    
+}
+/* Header y título */
+header {
+    text-align: center;
+    /* centra horizontalmente */
+    margin-bottom: 1.5rem;
 }
 
-/* =============================
-   Contenedor principal
-============================= */
+header h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* fuente moderna */
+    color: var(--neon-accent);
+    /* color neón fucsia */
+    font-size: 2rem;
+    /* tamaño grande */
+    font-weight: 700;
+    /* negrita */
+    text-shadow: 0 0 5px var(--neon-accent), 0 0 10px var(--neon-accent);
+    /* glow neón */
+    margin: 0;
+}
+
+/* =========================
+   LAYOUT
+========================= */
 main {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 1rem;
-    background: var(--blanco);
-    border-radius: 1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* =============================
-   Caja dibujo
-============================= */
-#caja-dibujo {
     display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
+/* =========================
+   SECTIONS (cards)
+========================= */
+section {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px var(--border-glow);
+    transition: transform 0.3s ease;
+    gap: 1rem;
+}
+
+section:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   IMAGE
+========================= */
 /* Contenedor centrado */
 #caja-dibujo {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 1rem;
 }
-
-/* Imagen más grande y responsiva */
 #caja-dibujo img {
-    width: 500px;
-    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
     height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px var(--neon-primary);
     transition: transform 0.3s ease;
 }
 
 #caja-dibujo img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* =============================
-   Secciones
-============================= */
-section {
-    margin-bottom: 1.5rem;
-}
-
+/* =========================
+   TITULOS
+========================= */
 h2 {
-    color: var(--fucsia-fuerte);
+    color: var(--neon-accent);
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    border-bottom: 2px solid var(--fucsia-medio);
     padding-bottom: 0.2rem;
 }
 
-/* =============================
-   Labels e Inputs
-============================= */
+/* =========================
+   LABELS e INPUTS
+========================= */
 label {
-    display: inline-block;
-    width: 70px;
-    margin-right: 0.5rem;
-    font-weight: 500;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
 }
 
-input[type="number"] {
-    width: calc(100% - 80px);
-    padding: 0.5rem;
-    border: 2px solid var(--turquesa-medio);
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
+input {
+    width: 100%;
+    
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #1f2937;
+    color: var(--text-main);
     outline: none;
-    font-size: 1rem;
-    background-color: var(--blanco);
+    transition: all 0.3s ease;
 }
 
-/* Hover y focus */
-input[type="number"]:hover {
-    border-color: var(--turquesa-fuerte);
-    box-shadow: 0 0 8px var(--turquesa-claro);
+input:hover {
+    border-color: var(--neon-primary);
+    box-shadow: 0 0 8px var(--neon-primary);
 }
 
-input[type="number"]:focus {
-    border-color: var(--fucsia-fuerte);
-    box-shadow: 0 0 8px var(--fucsia-medio);
+input:focus {
+    border-color: var(--neon-secondary);
+    box-shadow: 0 0 10px var(--neon-secondary);
 }
 
-/* =============================
-   Botón
-============================= */
+
 button {
-    padding: 0.7rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     border: none;
     border-radius: 0.7rem;
     cursor: pointer;
-    background: var(--fucsia-fuerte);
-    color: var(--blanco);
+    background: var(--neon-primary);
+    color: #000;
     transition: all 0.3s ease;
 }
 
 button:hover {
-    background: var(--fucsia-medio);
-    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+    box-shadow: 0 0 15px var(--neon-primary);
+    transform: translateY(-2px) scale(1.02);
 }
 
-/* =============================
-   Mensajes
-============================= */
+button:active {
+    transform: scale(0.97);
+}
+
+#limpiar {
+    background: var(--neon-accent);
+}
+
+#limpiar:hover {
+    box-shadow: 0 0 15px var(--neon-accent);
+}
+
 #mensaje,
 #cambio,
-#estadoCaja {
+#estado-caja {
+    font-weight: 600;
+    font-size: 1rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
     margin-top: 0.5rem;
-    background-color: var(--turquesa-claro);
-    font-weight: 500;
+    background-color: rgba(57, 255, 20, 0.1);
+    color: var(--neon-secondary);
     text-align: center;
 }
 
-/* =============================
-   Responsive (Mobile First)
-============================= */
-@media (min-width: 480px) {
+@media (min-width: 524px) {
     main {
-        padding: 2rem;
+        max-width: 900px;
     }
 
-    input[type="number"] {
-        width: calc(100% - 90px);
+    #caja-dibujo {
+        grid-column: span 2;
     }
 
-    label {
-        width: 80px;
+    #btn-contenedor {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
     }
-}
-
-@media (min-width: 768px) {
-    main {
-        max-width: 700px;
-        padding: 2.5rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    input[type="number"] {
-        font-size: 1.1rem;
-    }
-
     button {
-        font-size: 1.1rem;
-        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        padding: 1rem;
     }
 }

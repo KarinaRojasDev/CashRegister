@@ -21,7 +21,6 @@ let pagoCliente = (pago) => {
   return total;
 };
 
-// Calcula el cambio
 let cambio = (caja, totalAPagar, totalPagado) => {
   let cambioRestante = totalPagado - totalAPagar;
   let cambioEntregado = {};
@@ -51,9 +50,7 @@ let comprobarPago = () => {
   let pago = {};
 
   // Leer precio del producto
-  let precioDelProducto = Number(
-    document.getElementById("precioProducto").value,
-  );
+  let precioDelProducto = Number(document.getElementById("precio-producto").value);
 
   // Leer billetes
   pago[100] = Number(document.getElementById("b100").value) || 0;
@@ -76,7 +73,7 @@ let comprobarPago = () => {
 
   let mensajeDOM = document.getElementById("mensaje");
   let cambioDOM = document.getElementById("cambio");
-  let estadoCajaDOM = document.getElementById("estadoCaja");
+  let estadoCajaDOM = document.getElementById("estado-caja");
 
   // Limpiar los textos
   mensajeDOM.textContent = "";
@@ -85,32 +82,57 @@ let comprobarPago = () => {
 
   if (totalPagado < totalAPagar) {
     mensajeDOM.textContent = "Pago insuficiente";
-  } else if (totalPagado === totalAPagar) {
-    mensajeDOM.textContent = "Gracias por su compra. No hay cambio.";
   } else {
-    mensajeDOM.textContent = "Gracias por su compra.";
-    let cambioEntregado = cambio(caja, totalAPagar, totalPagado);
+    // Sumar el pago del cliente a la caja antes de dar cambio
+    for (let dinero in pago) {
+      if (caja[dinero] !== undefined) {
+        caja[dinero] += pago[dinero];
+      } else {
+        caja[dinero] = pago[dinero];
+      }
+    }
+    if (totalPagado === totalAPagar) {
+      mensajeDOM.textContent = "Gracias por su compra. No hay cambio.";
+    } else {
+      mensajeDOM.textContent = "Gracias por su compra.";
 
-    // Mostrar el cambio
-    for (let dinero in cambioEntregado) {
-      cambioDOM.textContent +=
-        "Cambio entregado: " +
-        dinero +
-        "€:\nTotal billetes: " +
-        cambioEntregado[dinero] +
-        "\n";
+      // Calcular cambio
+      let cambioEntregado = cambio(caja, totalAPagar, totalPagado);
+
+      // Mostrar el cambio entregado
+      if (Object.keys(cambioEntregado).length === 0) {
+        cambioDOM.textContent = "No hay cambio disponible para entregar.";
+      } else {
+        for (let dinero in cambioEntregado) {
+          cambioDOM.textContent +=
+            "Cambio entregado: " +
+            dinero +
+            "€:\nTotal billetes: " +
+            cambioEntregado[dinero] +
+            "\n";
+        }
+      }
     }
   }
 
-  // Mostrar estado de la caja
+  // Mostrar estado actualizado de la caja
   estadoCajaDOM.innerHTML = "<pre>Estado de caja actualizado:\n</pre>";
   for (let dinero in caja) {
     let totalPorValor = (dinero * caja[dinero]).toFixed(2);
     estadoCajaDOM.innerHTML += `<pre>Billetes/monedas de ${dinero}€: ${caja[dinero]} unidades, total = ${totalPorValor}€</pre>`;
   }
-};;
+};
 
 // Conectar botón
 document
-  .getElementById("calcularPago")
+  .getElementById("calcular-pago")
   .addEventListener("click", comprobarPago);
+document.getElementById("limpiar").addEventListener("click", () => {
+  document.getElementById("precio-producto").value = "";
+  // limpiar todos los inputs
+  document.querySelectorAll("input").forEach((input) => (input.value = ""));
+
+  document.getElementById("mensaje").textContent = "";
+  document.getElementById("cambio").textContent = "";
+  document.getElementById("estado-caja").textContent = "";
+});

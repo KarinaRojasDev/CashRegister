@@ -7,43 +7,47 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <h1>CAJA REGISTRADORA</h1>
+    </header>
     <main>
         <section id="caja-dibujo">
             <img src="./assets/img/caja_registradora.jpg" alt="Caja registradora" width="100" height="100">
         </section>
         <section>
-            <label for="precioProducto">Precio del producto:</label>
-            <input type="number" id="precioProducto" step="0.01" min="0">
+            <label for="precio-producto">Precio del producto:</label>
+            <input type="number" id="precio-producto" step="0.01" min="0">
         </section>
     
         <section>
             <h2>Billetes</h2>
-            <label for="b100">100€:</label> <input type="number" id="b100" min="0"><br>
-            <label for="b50">50€:</label> <input type="number" id="b50" min="0"><br>
-            <label for="b20">20€:</label> <input type="number" id="b20" min="0"><br>
-            <label for="b10">10€:</label> <input type="number" id="b10" min="0"><br>
+            <label for="b100">100€:</label> <input type="number" id="b100" min="0" placeholder="Nº de billetes">
+            <label for="b50">50€:</label> <input type="number" id="b50" min="0" placeholder="Nº de billetes">
+            <label for="b20">20€:</label> <input type="number" id="b20" min="0" placeholder="Nº de billetes">
+            <label for="b10">10€:</label> <input type="number" id="b10" min="0" placeholder="Nº de billetes">
         </section>
     
         <section>
             <h2>Monedas</h2>
-            <label for="m2">2€:</label> <input type="number" id="m2" min="0"><br>
-            <label for="m1">1€:</label> <input type="number" id="m1" min="0"><br>
-            <label for="m0_5">0.50€:</label> <input type="number" id="m0_5" min="0"><br>
-            <label for="m0_2">0.20€:</label> <input type="number" id="m0_2" min="0"><br>
-            <label for="m0_1">0.10€:</label> <input type="number" id="m0_1" min="0"><br>
-            <label for="m0_05">0.05€:</label> <input type="number" id="m0_05" min="0"><br>
-            <label for="m0_02">0.02€:</label> <input type="number" id="m0_02" min="0"><br>
-            <label for="m0_01">0.01€:</label> <input type="number" id="m0_01" min="0"><br>
+            <label for="m2">2€:</label> <input type="number" id="m2" min="0" placeholder="Nº de monedas">
+            <label for="m1">1€:</label> <input type="number" id="m1" min="0" placeholder="Nº de monedas">
+            <label for="m0_5">0.50€:</label> <input type="number" id="m0_5" min="0" placeholder="Nº de monedas">
+            <label for="m0_2">0.20€:</label> <input type="number" id="m0_2" min="0" placeholder="Nº de monedas">
+            <label for="m0_1">0.10€:</label> <input type="number" id="m0_1" min="0" placeholder="Nº de monedas">
+            <label for="m0_05">0.05€:</label> <input type="number" id="m0_05" min="0" placeholder="Nº de monedas">
+            <label for="m0_02">0.02€:</label> <input type="number" id="m0_02" min="0" placeholder="Nº de monedas">
+            <label for="m0_01">0.01€:</label> <input type="number" id="m0_01" min="0" placeholder="Nº de monedas">
         </section>
     
-        <section>
-            <button id="calcularPago">Calcular Pago</button>
+        <section id="btn-contenedor">
+            <button type="button" id="calcular-pago">Calcular Pago</button>
+            <button type="button" id="limpiar">Limpiar</button>
         </section>
     
         <section>
             <p id="mensaje"></p>
             <p id="cambio"></p>
-            <p id="estadoCaja"></p>
+            <p id="estado-caja"></p>
         </section>
     </main>
     <script src="./script.js"></script>
