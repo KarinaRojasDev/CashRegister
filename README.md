@@ -2,7 +2,7 @@
 
 ![Preview de la Caja Registradora](./assets/img/caja_registradora.jpg)
 
-**Prueba en vivo:** [Ver en GitHub Pages](TU_ENLACE_GITHUB_PAGES_AQUI)
+**Prueba en vivo:** [Ver en GitHub Pages](https://karinarojasdev.github.io/CashRegister/)
 
 ---
 
@@ -52,7 +52,7 @@ cd TU_REPO
 
 ### Probar en vivo
 
-[Ver en GitHub Pages](TU_ENLACE_GITHUB_PAGES_AQUI)
+[Ver en GitHub Pages](https://karinarojasdev.github.io/CashRegister/)
 
 ---
 
